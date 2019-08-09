@@ -20,32 +20,22 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php
-			$newstoday24_comment_count = get_comments_number();
-			if ( '1' === $newstoday24_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'newstoday24' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $newstoday24_comment_count, 'comments title', 'newstoday24' ) ),
-					number_format_i18n( $newstoday24_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
-
+		<h4 class="page-header mb-60 fs-20">
+			<span><?php echo get_comments_number(); ?></span> Comments
+		</h4>
+	
+		<div class="comment-item">
+			<!-- user-avatar -->
+			<span class="user-avatar">
+				
+			</span>
+		</div>
 		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">

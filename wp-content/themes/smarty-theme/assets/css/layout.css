@@ -9330,6 +9330,8 @@ section.dark-2 div.category-grid .card {
 @media only screen and (max-width: 768px) {
 	img.img-fluid {
 		float: none !important;
+		width: 40vh;
+		height: 60vh;
 	}
 
 	#header.fixed {
@@ -9366,6 +9368,29 @@ section.dark-2 div.category-grid .card {
 	}
 }
 
+p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{
+	width: 95vh;
+	height: 40vh;
+}
+
+@media (max-width: 480px){
+	p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{
+		width: 30vh;
+		height: 20vh;
+	}
+}
+@media (max-width: 760px){
+	p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{
+		width: 30vh;
+		height: 20vh;
+	}
+}
+@media (max-width: 1200px){
+	p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{
+		width: 40vh;
+		height: 30vh;
+	}
+}
 @media only screen and (max-width: 480px) {
 	.mobile-block {
 		display:block;

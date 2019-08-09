@@ -10,28 +10,84 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<section class="page-header dark page-header-xs">
+				<div class="container">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+					<h1><?php the_title(); ?></h1>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+				</div>
+</section><!-- /PAGE HEADER -->
+<section>
+	<div class="container">
+		<div class="row">
+			<!-- LEFT -->
+			<div class="col-md-9 col-sm-9">
 
-			the_post_navigation();
+			<h1 class="blog-post-title"><?php echo get_the_title(); ?></h1>
+			
+			<ul class="blog-post-info list-inline">
+								<li>
+									<a href="#">
+										<i class="fa fa-clock-o"></i> 
+										<span class="font-lato"><?php echo date('Y D M') ?></span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-comment-o"></i>
+										<span class="font-lato"><?php echo get_comments_number(); ?> Comments
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-user"></i> 
+										<?php if(empty(the_author())) { ?>
+										<span class="font-lato">Unknonw</span>
+										<? } else { ?>
+										<span class="font-lato"><?php echo the_author(); ?></span>
+										<?php } ?>
+									</a>
+								</li>
+			</ul>
+			</p>
+			<p class="dropcap">
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						?>
+						
+							<?php
+							the_post_thumbnail();
+							?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+					<?php
+						the_content();
 
-		endwhile; // End of the loop.
-		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) :
+							comments_template();
+						endif;
 
-	<?php get_sidebar();  ?>
+					endwhile; // End of the loop.
+					?>
+			</p>
+			</div><!-- col-md-9 col-sm-9 -->
+			<div class="col-md-3 col-sm-3">
+				<!-- INLINE SEARCH -->
+					<div class="inline-search clearfix mb-30">
+						<br>
+						<br>
+						<br>
+						<br>
+						<?php get_sidebar(); ?>
+					</div><!--inline-search--->
+			</div> <!-- col-md-3 col-sm-3 -->
+
+		</div><!-- row-->
+	</div><!-- container -->
+</section>
+
+	
 <?php
 get_footer();
