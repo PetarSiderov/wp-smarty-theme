@@ -10,49 +10,76 @@
  */
 
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Smarty - Multipurpose + Admin</title>
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
 
-<body <?php body_class(); ?>>
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="<?php bloginfo('stylesheet_directory'); ?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- SWIPER SLIDER -->
+		<link href="<?php bloginfo('stylesheet_directory'); ?>/assets/plugins/slider.swiper/dist/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="<?php bloginfo('stylesheet_directory'); ?>/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="<?php bloginfo('stylesheet_directory');?>/assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="<?php bloginfo('stylesheet_directory');?>/assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="<?php bloginfo('stylesheet_directory');?>/assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	</head>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'newstoday24' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$newstoday24_description = get_bloginfo( 'description', 'display' );
-			if ( $newstoday24_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $newstoday24_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+	<br>
+	<div style="top:30px;" class="border-top block clearfix">
+		<div class="container">
+			<!-- Logo -->
+			<div class="row">
+				<div class="col-md-6 col-md-offset-2">
+				<a class="logo has-banner float-left text-center-md" href="index.html">
+					<?php the_custom_logo(); ?>
+				</a>
+				</div>
+				<div class="col-md-2 col-md-offset-8">
+						<?php dynamic_sidebar( 'sidebar-5' ); ?>
+				</div>
+			</div><!-- row -->
+		</div>
+	</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'newstoday24' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+	<header id="topNav">
+					<div class="container">
+						
+						<div class="navbar-collapse collapse float-left nav-main-collapse pl-0 pr-0">
+							
+						</div>
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+									<?php
+									wp_nav_menu( array(
+										'theme_location'  => 'menu-1',
+										'container' 	  => 'ul',
+										'container_class' => 'navbar-main-collapse ',
+										'container'       => 'ul',
+										'menu_id'         => 'topMain',
+										'menu_class'      => 'nav nav-pills nav-main navbar-toggleable-md sticky header-sm clearfix',
+									));
+									
+								?>	
+					</div><!--nav-collapse -->
+			</div><!-- container -->
+		</header>
+</div>
