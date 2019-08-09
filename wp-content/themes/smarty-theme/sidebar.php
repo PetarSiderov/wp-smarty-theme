@@ -18,10 +18,13 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 <h3 class="page-header mt-0 fw-300">
 								Today's <span>Hot</span>
 							</h3>
+							<?php 
+			$popularpost = new WP_Query( array( 'posts_per_page' => 4, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
 
+?>
 							<!-- No #1 Hot -->
 							<div class="item-box mt-0">
-								<figure>
+								<figure  class="mb-20">
 									<a class="item-hover" href="#">
 										<span class="overlay color2"></span>
 										<span class="inner">
@@ -29,28 +32,29 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 											<strong>READ</strong> ARTICLE
 										</span>
 									</a>
-									<img alt="" class="img-fluid" src="<?php bloginfo('stylesheet_directory'); ?>/demo_files/images/magazine/thumbs/thumb_4-min.jpg" />
+									<?php $popular = new WP_Query('orderby=comment_count&posts_per_page=10'); ?>
+									
+									<!-- comment counting  -->
+									
+									<?php while ($popular->have_posts()) : $popular->the_post(); ?>	
+									<?php $justanimage = get_post_meta($post->ID, 'Image', true); // get an image
+										if ($justanimage) { ?>
+									<img src="<?php echo get_post_meta($post->ID, "Image", true); ?>" alt="<?php the_title(); ?>" />
+									<?php } else { $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+									echo '<img class="img-fluid" src="'.$image[0].'" alt="" />';  ?>
+									<?php } ?>
+									
+								<?php break; endwhile; ?>
 								</figure>
 								<div class="item-box-desc p-10">
-									<small>29 June 2014, 08:33</small>
-									<h4><a href="#">World's most polluted...</a></h4>
+								<small><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></small>
+								<?php
+									
+							the_posts_navigation();
+							?>
 								</div>
 							</div>
 							<!-- /No #1 Hot -->
-
-
-
-							<!-- video -->
-							<div class="embed-responsive embed-responsive-16by9 mt-30">
-								<iframe class="embed-responsive-item" src="//player.vimeo.com/video/8408210" width="800" height="450"></iframe>
-							</div>
-							<h5 class="fw-300 pt-10 fs-13">
-								<i class="fa fa-comments"></i> <a href="#">Comment this video</a> 
-								<small class="float-right mt-3">(0 comments)</small>
-							</h5>
-							<!-- /video -->
-
-
 
 							<!-- small articles -->
 							<div class="row mt-30">
