@@ -27,20 +27,12 @@
 							<!-- /Latest Blog Post -->
 
 							</div><!-- col-md-3 ---> 
-							<div class="col-md-2">
-								<h2 class="widget-title"> Navigation </h2>
-								<?php 
-									wp_nav_menu( array(
-										'theme_location'   => 'footer-menu',
-										'container'        => 'ul',
-										'menu_class'  	   => 'footer-links list-unstyled',
-										'contaier'         => 'a'
-									));
-								?>
-								<!-- Links -->
+							<div class="col-md-4">
+							<?php dynamic_sidebar( 'sidebar-6' ); ?>
+								
 							</div><!-- col-md-2 --->
 						
-						<div class="col-md-4">
+						<div class="col-md-2">
 							<?php dynamic_sidebar( 'sidebar-3' ); ?>
 						</div>
 					</div>
@@ -48,7 +40,7 @@
 				<div class="copyright">
 					<div class="container">
 						
-						&copy; All Rights Reserved, LTD <?php bloginfo('name'); ?> ,  <?php echo date('Y') ?> Author <?php  the_author(); ?>
+						&copy; All Rights Reserved, LTD <?php bloginfo('name'); ?> ,  <?php echo date('Y') ?> Author <?php the_author(); ?>
 					</div>
 				</div>
 				</div> <!-- row -->
