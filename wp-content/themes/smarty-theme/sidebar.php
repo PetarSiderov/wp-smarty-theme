@@ -50,28 +50,11 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 								<small><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></small>
 								<?php
 									
-							the_posts_navigation();
+								the_posts_navigation();
 							?>
 								</div>
 							</div>
 							<!-- /No #1 Hot -->
-
-							<!-- small articles -->
-							<div class="row mt-30">
-								<div class="col-6 col-md-6">
-									<a href="#">
-										<img alt="" class="img-fluid" src="<?php bloginfo('stylesheet_directory'); ?>/demo_files/images/magazine/thumbs/thumb_3-min.jpg" />
-										<h6 class="fsize12 font300 padding6">Horses hypnotized by the sea</h6>
-									</a>							
-								</div>
-								<div class="col-6 col-md-6">
-									<a href="#">
-										<img alt="" class="img-fluid" src="<?php bloginfo('stylesheet_directory'); ?>/demo_files/images/magazine/thumbs/thumb_4-min.jpg" />
-										<h6 class="fsize12 font300 padding6">Sochi protesters fight to be heard</h6>
-									</a>							
-								</div>
-							</div>
-							<!-- /small articles -->
 
 
 
