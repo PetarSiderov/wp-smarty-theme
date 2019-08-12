@@ -35,7 +35,7 @@ if ( post_password_required() ) {
 			<span class="user-avatar">
 				
 			</span>
-		</div>
+			<div class="media-body"></div>
 		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">
@@ -58,8 +58,10 @@ if ( post_password_required() ) {
 		endif;
 
 	endif; // Check for have_comments().
-
+	?>
+	<div class="media-body">
+	<?php
 	comment_form();
 	?>
-
+	</div>
 </div><!-- #comments -->

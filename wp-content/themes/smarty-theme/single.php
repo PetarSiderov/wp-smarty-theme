@@ -22,6 +22,10 @@ get_header();
 		<div class="row">
 			<!-- LEFT -->
 			<div class="col-md-9 col-sm-9">
+			<?php
+				while ( have_posts() ) :
+					the_post();
+				?>
 
 			<h1 class="blog-post-title"><?php echo get_the_title(); ?></h1>
 			
@@ -33,7 +37,7 @@ get_header();
 									</a>
 								</li>
 								<li>
-									<a href="#">
+									<a href="<?php echo get_comments_link($post->ID); ?>">
 										<i class="fa fa-comment-o"></i>
 										<span class="font-lato"><?php echo get_comments_number(); ?> Comments
 									</a>
@@ -41,20 +45,17 @@ get_header();
 								<li>
 									<a href="#">
 										<i class="fa fa-user"></i> 
-										<?php if(empty(the_author())) { ?>
+										<?php if( empty(the_author())) { ?>
 										<span class="font-lato">Unknonw</span>
 										<? } else { ?>
-										<span class="font-lato"><?php echo the_author(); ?></span>
+										<span class="font-lato"><?php the_author(); ?></span>
 										<?php } ?>
 									</a>
 								</li>
 			</ul>
 			</p>
 			<p class="dropcap">
-					<?php
-					while ( have_posts() ) :
-						the_post();
-						?>
+				
 						
 							<?php
 							the_post_thumbnail();

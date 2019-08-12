@@ -2713,10 +2713,11 @@ function _navigation_markup( $links, $class = 'posts-navigation', $screen_reader
 	}
 
 	$template = '
+	<ul class="pagination m-0">
 	<nav class="navigation %1$s" role="navigation">
-		<h2 class="screen-reader-text">%2$s</h2>
-		<div class="nav-links">%3$s</div>
-	</nav>';
+	<li class="page-item"><div class="nav-links">%3$s</div><li>
+	</nav>
+	</ul>';
 
 	/**
 	 * Filters the navigation markup template.

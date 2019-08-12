@@ -25,9 +25,11 @@ get_header();
 				<div class="owl-carousel buttons-autohide controlls-over" 
 					data-plugin-options='{"singleItem": true, "autoPlay": true, "navigation": true, "pagination": true, "transitionStyle":"fade"}'>
 					<?php
+
 									if ( have_posts() ) :
 										while ( have_posts() ) :
 											the_post();
+											$counter ++;
 											$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
 											/* grab the url for the full size featured image */
 											$featured_img_url = get_the_post_thumbnail_url('full'); 
@@ -38,6 +40,9 @@ get_header();
 												the_post_thumbnail('thumbnail');
 											echo '>';
 											echo '</a>';
+											if( $counter == 3){
+												break;
+											}
 										endwhile; 
 									endif; 
 					?>
