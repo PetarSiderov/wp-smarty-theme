@@ -10,17 +10,25 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		
+		
+<section>
+		<div class="row">
+		<div class="col-md-8">
+		<h1 class="page-header fw-300 text-center">
+				<strong class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'newstoday24' ); ?></strong>
+		</h1>	
+		</div>
+		<div class="col-md-3">
+			<?php 
+				get_sidebar();
+			?>
+		</div>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'newstoday24' ); ?></h1>
-				</header><!-- .page-header -->
-			</section><!-- .error-404 -->
+		</div>
+	
+</section>		
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 get_footer();
