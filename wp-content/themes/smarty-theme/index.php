@@ -16,7 +16,7 @@ get_header();
 ?>
 
 <!-- -->
-	<section>
+<section>
 		<div class="container">
 			<div class="row">
 				<!-- LEFT -->
@@ -91,7 +91,36 @@ get_header();
 							</div>
 						
 					</div> <!-- allert -->
+
+<!-- TWO COLUMNS -->
+<div class="row">
+
+<!-- first column -->
+<div class="col-md-12">
+			<h3 class="page-header fw-300">
+				<a href="#" data-toggle="tooltip" title="view more"><i class="fa fa-plus-square-o"></i></a>
+				<strong>Recent</strong> News
+			</h3>
+			
+				<div class="col-md-4 text-center">
+				<?php $the_query = new WP_Query( 'posts_per_page=3' ); ?>
+				<?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+				<div>
+					<img id="Img-main" alt="" class="img-fluid" src="<?php  echo get_the_post_thumbnail_url( $post->ID ); ?>" />
 				</div>
+			</div>
+		<div class="col-md-8">					
+				<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+					<p><?php the_excerpt(__('(more…)')); ?></p>
+				<small class="block"><?php echo date('Y D M H') ?></small>
+		</div>
+		<hr /><!-- separator -->
+		<?php 
+		endwhile;
+		wp_reset_postdata();
+		?>
+</div>
+
 						<!-- /LEFT -->
 
 						<!-- RIGHT -->
@@ -101,11 +130,12 @@ get_header();
 						<!-- /RIGHT -->
 
 					</div>
+				
 					<div class="row">
-					<div class="col-sm-4">
-							<h1></h1>
-						</div>
-						</div>
+					<div class="item-box">
+					
+					</div>
+				</div>
 				</div>
 				
 			</section>
@@ -115,6 +145,7 @@ get_header();
 		</main><!-- #main -->
 		
 	</div><!-- container -->
+	</section>
 
 <?php
 

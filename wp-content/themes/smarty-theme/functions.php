@@ -158,6 +158,17 @@ function newstoday24_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Main Centar Widget', 'newstoday24' ),
+		'id'            => 'sidebar-7',
+		'description'   => esc_html__( 'Add widgets here.', 'newstoday24' ),
+		'before_widget' => '<div  class="item-box">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h7 class="widget-title">',
+		'after_title'   => '</h7>',
+	) );
+
+
 }
 add_action( 'widgets_init', 'newstoday24_widgets_init' );
 
