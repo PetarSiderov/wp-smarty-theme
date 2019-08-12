@@ -36,7 +36,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 									
 									<!-- comment counting  -->
 									
-									<?php while ($popular->have_posts()) : $popular->the_post(); ?>	
+									<?php while ($popular->have_posts()) : $popular->the_post();  count_most_commentpost($popular) ?>	
 									<?php $justanimage = get_post_meta($post->ID, 'Image', true); // get an image
 										if ($justanimage) { ?>
 									<img src="<?php echo get_post_meta($post->ID, "Image", true); ?>" alt="<?php the_title(); ?>" />
@@ -52,10 +52,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 									
 								the_posts_navigation();
 							?>
-								</div>
+								</div> 
 							</div>
 							<!-- /No #1 Hot -->
-
+							<?php count_most_commentpost($popular) ?>
 
 
 							<!-- LATEST -->

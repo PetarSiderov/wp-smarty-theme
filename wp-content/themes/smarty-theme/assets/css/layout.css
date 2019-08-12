@@ -9369,9 +9369,11 @@ section.dark-2 div.category-grid .card {
 }
 
 p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{
-	width: 95vh;
+	width:80vh;
 	height: 40vh;
 }
+
+
 
 @media (max-width: 480px){
 	p.dropcap img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{

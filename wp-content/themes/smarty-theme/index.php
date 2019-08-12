@@ -96,13 +96,20 @@ get_header();
 						<!-- /RIGHT -->
 
 					</div>
-
+					<div class="row">
+					<div class="col-sm-4">
+							<h1></h1>
+						</div>
+						</div>
 				</div>
+				
 			</section>
 			<!-- / -->
+			
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+		
+	</div><!-- container -->
 
 <?php
 

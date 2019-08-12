@@ -206,5 +206,28 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 //function  for counting comments if comments has an equal number of comments
 function count_most_commentpost($comment){
-	
+	$post_max_count=-1;
+	$predd = 0;
+	$pred_id = '';
+	$comments_first =0;
+	while ($comment-> have_posts() ) :
+		$comment->the_post();
+		$predd = (int)$post_max_count;
+		//var_dump($predd);
+		$comment_count_= get_comments_number($post->ID);
+		//var_dump($comment_count_);
+		$comments_tekoven = (int) $comment_count_;
+		//var_dump( $comments_tekoven);
+		if($post_max_count<$comments_tekoven){
+			$post_max_count = $comments_tekoven;
+			if($predd==$comment_count_){
+			//	var_dump($predd);
+				//var_dump($comment_count_);
+			}
+		
+		}
+		//var_dump($post_max_count );
+	endwhile;
+	//var_dump($post_max_count);
+	return $post_max_count;
 }
